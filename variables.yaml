@@ -1,2 +1,3 @@
 mongodb_host: mongodb.kalidindi.cloud
 redis_host: redis.kalidindi.cloud
+catalogue_host: catalogue.kalidindi.cloud
