@@ -14,8 +14,7 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: systemdb
-
 - name: deployment
   ansible.builtin.import_role:
    name: common
-   tasks_form: deployment
+   tasks_from: deployment
