@@ -9,12 +9,12 @@
     state: present
 
 - name: get the catalogue entries count
-  ansible.builtin.command:  mongo --host mongodb.kalidindi.cloud --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+  ansible.builtin.command:  mongo --host {{mongodb_host}} --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
   register: product_count
   when: component == "catalogue"
 
 - name: get the user entries count
-  ansible.builtin.command:  mongo --host mongodb.kalidindi.cloud --quiet --eval 'db = db.getSiblingDB("user"); db.user.count()'
+  ansible.builtin.command:  mongo --host {{mongodb_host}} --quiet --eval 'db = db.getSiblingDB("user"); db.user.count()'
   register: user_count
   when: component == "user"
 
@@ -23,12 +23,12 @@
   #     msg: "product count: {{product_count}}"
 
 - name: load catalogue data
-  ansible.builtin.command: "mongo --host mongodb.kalidindi.cloud < /app/schema/{{component}}.js"
+  ansible.builtin.command: "mongo --host {{mongodb_host}} < /app/schema/{{component}}.js"
   when: product_count.stdout == "0" and component == "catalogue"
   ignore_errors: true
 
 - name: load user data
-  ansible.builtin.command: "mongo --host mongodb.kalidindi.cloud < /app/schema/{{component}}.js"
+  ansible.builtin.command: "mongo --host {{mongodb_host}} < /app/schema/{{component}}.js"
   when: product_count.stdout == "0" and component == "user"
   ignore_errors: true
 
