@@ -25,6 +25,7 @@
 - name: load catalogue data
   ansible.builtin.command: "mongo --host mongodb.kalidindi.cloud < /app/schema/{{component}}.js"
   when: product_count.stdout == "0" and component == "catalogue"
+  ignore_errors: true
 
 - name: load catalogue data
   ansible.builtin.command: "mongo --host mongodb.kalidindi.cloud < /app/schema/{{component}}.js"
