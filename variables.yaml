@@ -1,8 +1,8 @@
 mongodb_host: mongodb.kalidindi.cloud
 redis_host: redis.kalidindi.cloud
 catalogue_host: catalogue.kalidindi.cloud
-user_host:user: user.kalidindi.cloud
-cart_host:cart: cart.kalidindi.cloud
+user_host: user.kalidindi.cloud
+cart_host: cart.kalidindi.cloud
 mysql_host: mysql.kalidindi.cloud
 rabbitmq_host: rabbitmq.kalidindi.cloud
 shipping_host: shipping.kalidindi.cloud
