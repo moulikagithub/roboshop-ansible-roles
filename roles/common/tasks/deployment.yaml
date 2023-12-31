@@ -2,7 +2,7 @@
   tags:
   - deployment
   ansible.builtin.service:
-  name: "{{component}}"
+   name: "{{component}}"
    state: stopped
 
 - name: remove app directory
